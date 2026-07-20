@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Reid monogram</title>
+  <defs>
+    <linearGradient id="surface" x1="8" y1="4" x2="58" y2="62" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171923"/>
+      <stop offset="1" stop-color="#08090d"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="18" y1="15" x2="49" y2="51" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d5c6ff"/>
+      <stop offset="0.52" stop-color="#9d82f6"/>
+      <stop offset="1" stop-color="#63d8de"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#surface)"/>
+  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="14.25" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width="1.5"/>
+  <path d="M18 49V15h16.25c8.3 0 13.45 4.45 13.45 11.55 0 5.25-2.95 9.05-8.25 10.55L49 49h-8.9l-8.25-10.75h-6.2V49H18Zm7.65-17.1h8.05c4.1 0 6.35-1.75 6.35-5.05 0-3.25-2.25-4.9-6.35-4.9h-8.05v9.95Z" fill="url(#signal)"/>
+  <circle cx="50" cy="14" r="2" fill="#70dce2"/>
+</svg>

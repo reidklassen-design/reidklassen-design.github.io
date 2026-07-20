@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reidklassen-design.github.io/sitemap.xml
