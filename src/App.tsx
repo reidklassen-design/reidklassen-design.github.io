@@ -43,7 +43,9 @@ function Lightbox({ project, close }: { project: Project; close: () => void }) {
 function ProductEmail({ site, className = '' }: { site: ProductSite; className?: string }) {
   const parts = ['reidklassen', 'gmail', 'com']
   const openEmail = () => {
-    const subject = `${site.name} pilot · ${site.source}`
+    const rawSource = new URLSearchParams(window.location.search).get('src') ?? ''
+    const source = rawSource.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 32) || site.source
+    const subject = `${site.name} pilot · ${source}`
     const body = [
       'What workflow should this fix?',
       '',
@@ -57,11 +59,13 @@ function ProductEmail({ site, className = '' }: { site: ProductSite; className?:
 }
 
 function ProductSitePage({ site }: { site: ProductSite }) {
+  const isIndependentHost = window.location.hostname.split('.')[0] === site.slug
+  const homeHref = isIndependentHost ? '/' : `/${site.slug}/`
   return (
     <main className={`product-site ${site.theme}`}>
       <section className="product-hero">
         <nav className="product-nav" aria-label={`${site.name} navigation`}>
-          <a href={`/${site.slug}/`} aria-label={`${site.name} home`}>{site.name}</a>
+          <a href={homeHref} aria-label={`${site.name} home`}>{site.name}</a>
           <ProductEmail site={site} className="product-nav-cta" />
         </nav>
         <div className="product-copy">
@@ -94,7 +98,8 @@ function ProductSitePage({ site }: { site: ProductSite }) {
 function App() {
   const [activeProject, setActiveProject] = useState<Project | null>(null)
   const slug = window.location.pathname.split('/').filter(Boolean)[0]
-  const productSite = productSites.find((site) => site.slug === slug)
+  const hostSlug = window.location.hostname.split('.')[0]
+  const productSite = productSites.find((site) => site.slug === slug || site.slug === hostSlug)
   if (productSite) return <ProductSitePage site={productSite} />
 
   return (
