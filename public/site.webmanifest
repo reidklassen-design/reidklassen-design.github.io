@@ -1,7 +1,7 @@
 {
-  "name": "Reid — Practical AI Software",
+  "name": "Reid — Custom Software",
   "short_name": "Reid",
-  "description": "Custom phone apps, desktop software, MCU firmware, and practical AI tools.",
+  "description": "Custom phone apps, desktop software, and MCU firmware at introductory launch prices.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

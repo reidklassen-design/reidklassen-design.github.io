@@ -1,4 +1,4 @@
-# Reid — Practical AI Software
+# Reid — Custom Software
 
 Personal developer portfolio for Reid, built with Vite, React, and TypeScript.
 

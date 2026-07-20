@@ -39,10 +39,10 @@ for (const target of targets) {
     brokenImages: [...document.images].filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.src),
     sections: ['work', 'services', 'process', 'contact'].filter((id) => !document.getElementById(id)),
     github: document.querySelector('a[href="https://github.com/reidklassen-design"]')?.getAttribute('href'),
-    contactButtons: [...document.querySelectorAll('button')].filter((button) => button.textContent?.match(/start a project|tell me what/i)).length,
+    contactButtons: document.querySelectorAll('button.header-contact, button.button.primary, button.contact-link').length,
   }))
 
-  if (audit.title !== 'Reid — Practical AI Software') failures.push(`${target.name}: unexpected title`)
+  if (audit.title !== 'Founding Client Offer — Custom Builds from $40') failures.push(`${target.name}: unexpected title`)
   if (audit.horizontalOverflow > 1) failures.push(`${target.name}: horizontal overflow ${audit.horizontalOverflow}px`)
   if (audit.brokenImages.length) failures.push(`${target.name}: broken images: ${audit.brokenImages.join(', ')}`)
   if (audit.sections.length) failures.push(`${target.name}: missing sections: ${audit.sections.join(', ')}`)

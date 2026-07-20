@@ -9,23 +9,23 @@ export type Project = {
   tone: 'violet' | 'cyan' | 'amber'
 }
 
-export const skills = ['Python', 'React', 'Tauri', 'Local AI', 'Voice', 'APIs', 'Mobile', 'Firmware']
+export const skills = ['Python', 'React', 'Tauri', 'Interfaces', 'Voice', 'APIs', 'Mobile', 'Firmware']
 
 export const projects: Project[] = [
   {
     index: '01',
     title: 'Atlas Workbench',
-    eyebrow: 'Local AI · Desktop',
+    eyebrow: 'Local models · Desktop',
     description: 'A desktop control panel for running and managing local llama.cpp models—without memorizing command-line flags.',
     tags: ['React', 'Tauri', 'llama.cpp'],
     image: '/media/projects/atlas-workbench.webp',
-    alt: 'Atlas Workbench desktop interface for configuring and running local AI models',
+    alt: 'Atlas Workbench desktop interface for configuring and running local models',
     tone: 'violet',
   },
   {
     index: '02',
     title: 'FLUX Studio',
-    eyebrow: 'Generative AI · GPU',
+    eyebrow: 'Image generation · GPU',
     description: 'A focused local image-generation studio that brings prompts, models, batches, output, and GPU execution into one polished workflow.',
     tags: ['Python', 'Local inference', 'Image generation'],
     image: '/media/projects/flux-studio.webp',
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     index: '03',
     title: 'RAGdrop',
     eyebrow: 'Knowledge · Local-first',
-    description: 'A private knowledge workspace that connects selected files to AI coding assistants while keeping source material under your control.',
+    description: 'A private knowledge workspace that connects selected files to development tools while keeping source material under your control.',
     tags: ['RAG', 'Developer tools', 'Privacy'],
     image: '/media/projects/ragdrop.webp',
     alt: 'RAGdrop local knowledge workspace showing a sanitized document vault',
@@ -45,10 +45,9 @@ export const projects: Project[] = [
 ]
 
 export const services = [
-  { number: '01', title: 'Custom phone apps', price: 'Starting at $60', body: 'A focused app for your idea, workflow, or business—designed to feel clear, fast, and genuinely useful.' },
-  { number: '02', title: 'Custom desktop apps', price: 'Starting at $60', body: 'Purpose-built software with a polished interface, direct system access, and no unnecessary complexity.' },
-  { number: '03', title: 'MCU firmware', price: 'Starting at $40', body: 'Practical firmware for sensors, controls, connected devices, prototypes, and small embedded systems.' },
-  { number: '04', title: 'AI workflow tools', price: 'Custom quote', body: 'Turn repetitive work into a reliable, testable workflow built around the way you actually operate.' },
+  { number: '01', title: 'Custom phone apps', price: 'Founding offer · Starting at $60', body: 'A focused first version for your idea, workflow, or business—designed to feel clear, fast, and genuinely useful.' },
+  { number: '02', title: 'Custom desktop apps', price: 'Founding offer · Starting at $60', body: 'A focused first version with a polished interface, direct system access, and no unnecessary complexity.' },
+  { number: '03', title: 'MCU firmware', price: 'Founding offer · Starting at $40', body: 'Practical firmware for sensors, controls, connected devices, prototypes, and small embedded systems.' },
 ]
 
 export const process = [
