@@ -6,7 +6,19 @@ const Expand = () => <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7 3H3
 
 function EmailLink({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const parts = ['reidklassen', 'gmail', 'com']
-  const openEmail = () => { window.location.href = `mailto:${parts[0]}@${parts[1]}.${parts[2]}?subject=${encodeURIComponent('Reserve a founding-client project spot')}` }
+  const openEmail = () => {
+    const rawSource = new URLSearchParams(window.location.search).get('src') ?? ''
+    const source = rawSource.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 32) || 'direct'
+    const subject = `Project brief · ${source}`
+    const body = [
+      'What should it do?',
+      '',
+      'Where should it run?',
+      '',
+      'What would make it useful?',
+    ].join('\n')
+    window.location.href = `mailto:${parts[0]}@${parts[1]}.${parts[2]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
   return <button className={className} type="button" onClick={openEmail}>{children}</button>
 }
 
@@ -36,7 +48,7 @@ function App() {
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Reid, home"><span>R</span> Reid</a>
         <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a></nav>
-        <EmailLink className="header-contact">Reserve a spot <Arrow /></EmailLink>
+        <EmailLink className="header-contact">Describe your task <Arrow /></EmailLink>
       </header>
 
       <main>
@@ -47,13 +59,13 @@ function App() {
             <img src="/media/generated/hero-workshop.png" alt="" fetchPriority="high" />
           </picture>
           <div className="hero-grid" aria-hidden="true" />
-          <div className="availability"><i /> Founding client offer <span>First 5 projects only</span></div>
+          <div className="availability"><i /> Founding client offer <span>First 5 paid projects</span></div>
           <div className="hero-copy">
-            <p className="kicker">Founding client offer · First 5 projects only</p>
-            <h1>Your idea.<br /><em>Built from $40.</em><br />No big budget.</h1>
-            <p className="hero-deck">Real custom software at opening-day prices. Start with a focused first version you can actually use.</p>
-            <div className="offer-summary" aria-label="Founding client prices"><span><b>Phone app</b>From $60</span><span><b>Desktop app</b>From $60</span><span><b>MCU firmware</b>From $40</span></div>
-            <div className="hero-actions"><EmailLink className="button primary">Reserve 1 of 5 spots <Arrow /></EmailLink><a className="button secondary" href="#work">See what I’ve built</a></div>
+            <p className="kicker">Founding client pricing · First 5 paid projects</p>
+            <h1>That annoying task?<br /><em>Make it one tap.</em></h1>
+            <p className="hero-deck">Tell me one task you repeat. I’ll outline the smallest useful tool that could eliminate it—free. If you want it built, founding-client projects start at CAD $40.</p>
+            <div className="offer-summary" aria-label="Founding client prices"><span><b>Phone app</b>From CAD $60</span><span><b>Desktop app</b>From CAD $60</span><span><b>MCU firmware</b>From CAD $40</span></div>
+            <div className="hero-actions"><EmailLink className="button primary">Describe your annoying task <Arrow /></EmailLink><a className="button secondary" href="#work">See what I’ve built</a></div>
           </div>
           <div className="hero-index" aria-hidden="true"><span>Selected work</span><b>↓</b></div>
         </section>
@@ -83,7 +95,7 @@ function App() {
 
         <section className="services section" id="services">
           <div className="section-heading compact"><p><span>02</span> Founding client offer</p><h2>Small price.<br />A <em>real custom build.</em></h2></div>
-          <div className="service-list">{services.map((service) => <article key={service.title}><span>{service.number}</span><h3>{service.title}<small>{service.price}</small></h3><p>{service.body}</p><Arrow /></article>)}</div>
+          <div className="service-list">{services.map((service) => <article key={service.title}><span>{service.number}</span><h3>{service.title}<small>{service.price}</small></h3><div className="service-details"><p>{service.body}</p><p className="starter-includes"><b>Starter includes</b>{service.includes}</p><p className="starter-limits">{service.limits}</p></div><Arrow /></article>)}</div>
         </section>
 
         <section className="process section" id="process">
@@ -91,7 +103,7 @@ function App() {
           <ol>{process.map((item, index) => <li key={item.step}><span>0{index + 1}</span><div><h3>{item.step}</h3><p>{item.body}</p></div></li>)}</ol>
         </section>
 
-        <section className="contact section" id="contact"><p className="eyebrow">Founding client offer · First 5 projects</p><h2>One small idea.<br /><em>Something real.</em></h2><EmailLink className="contact-link">Reserve a project spot <Arrow /></EmailLink><div className="contact-glow" aria-hidden="true" /></section>
+        <section className="contact section" id="contact"><p className="eyebrow">Founding client pricing · First 5 paid projects</p><h2>One annoying task.<br /><em>Your own solution.</em></h2><EmailLink className="contact-link">Describe your annoying task <Arrow /></EmailLink><p className="contact-note">The outline is free. If it fits a starter scope, builds begin at CAD $40.</p><div className="contact-glow" aria-hidden="true" /></section>
       </main>
 
       <footer><a className="brand" href="#top"><span>R</span> Reid</a><p>Custom software · Built in Canada</p><div><a href="https://github.com/reidklassen-design" target="_blank" rel="noreferrer">GitHub ↗</a><a href="#top">Back to top ↑</a></div></footer>

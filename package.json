@@ -9,7 +9,14 @@
     "typecheck": "tsc -b --pretty false",
     "preview": "vite preview",
     "verify:site": "node scripts/verify-site.mjs",
-    "scan:public": "node scripts/scan-public.mjs public dist"
+    "scan:public": "node scripts/scan-public.mjs public dist",
+    "campaign:test": "node --test campaign/test/*.test.mjs",
+    "campaign:status": "node campaign/cli.mjs status",
+    "campaign:review": "node campaign/cli.mjs review",
+    "campaign:evolve": "node campaign/cli.mjs evolve",
+    "operator:test": "node --test campaign/test/operator.test.mjs",
+    "operator:status": "node campaign/operator-cli.mjs status",
+    "operator:due": "node campaign/operator-cli.mjs due"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",

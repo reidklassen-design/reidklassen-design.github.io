@@ -45,9 +45,30 @@ export const projects: Project[] = [
 ]
 
 export const services = [
-  { number: '01', title: 'Custom phone apps', price: 'Founding offer · Starting at $60', body: 'A focused first version for your idea, workflow, or business—designed to feel clear, fast, and genuinely useful.' },
-  { number: '02', title: 'Custom desktop apps', price: 'Founding offer · Starting at $60', body: 'A focused first version with a polished interface, direct system access, and no unnecessary complexity.' },
-  { number: '03', title: 'MCU firmware', price: 'Founding offer · Starting at $40', body: 'Practical firmware for sensors, controls, connected devices, prototypes, and small embedded systems.' },
+  {
+    number: '01',
+    title: 'Custom phone apps',
+    price: 'Founding price · From CAD $60',
+    body: 'One target platform—iOS or Android—with one focused flow of roughly one to three screens.',
+    includes: 'Local data · Source · Test build · One revision',
+    limits: 'Accounts, payments, backends, store submission, third-party fees, and continuing support are quoted separately.',
+  },
+  {
+    number: '02',
+    title: 'Custom desktop apps',
+    price: 'Founding price · From CAD $60',
+    body: 'One target platform, one window, and one focused local input-to-output workflow.',
+    includes: 'Source · Packaged build · One revision',
+    limits: 'Multiple platforms, cloud services, extra workflows, and continuing support are quoted separately.',
+  },
+  {
+    number: '03',
+    title: 'MCU firmware',
+    price: 'Founding price · From CAD $40',
+    body: 'One supported development board, one low-voltage peripheral, and one defined behaviour.',
+    includes: 'Source · Pinout · Flash notes · One revision',
+    limits: 'Client supplies reproducible hardware. Safety-critical, regulated, and high-voltage work is not accepted.',
+  },
 ]
 
 export const process = [
