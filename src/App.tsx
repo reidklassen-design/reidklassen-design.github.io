@@ -4,19 +4,25 @@ import { process, productSites, projects, services, skills, type ProductSite, ty
 const Arrow = () => <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M4 10h11M11 5l5 5-5 5" /></svg>
 const Expand = () => <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7 3H3v4M13 3h4v4M7 17H3v-4M13 17h4v-4" /></svg>
 
-function EmailLink({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+function EmailLink({ children, className = '', preview = false }: { children: React.ReactNode; className?: string; preview?: boolean }) {
   const parts = ['reidklassen', 'gmail', 'com']
   const openEmail = () => {
     const rawSource = new URLSearchParams(window.location.search).get('src') ?? ''
     const source = rawSource.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 32) || 'direct'
-    const subject = `Project brief · ${source}`
-    const body = [
+    const subject = preview ? `Free app preview · ${source}` : `Project brief · ${source}`
+    const body = (preview ? [
+      'What should the app help you do?',
+      '',
+      'Where should it run (iPhone, Android, or desktop)?',
+      '',
+      'What should the preview screen show?',
+    ] : [
       'What should it do?',
       '',
       'Where should it run?',
       '',
       'What would make it useful?',
-    ].join('\n')
+    ]).join('\n')
     window.location.href = `mailto:${parts[0]}@${parts[1]}.${parts[2]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
   return <button className={className} type="button" onClick={openEmail}>{children}</button>
@@ -119,13 +125,13 @@ function App() {
             <img src="/media/generated/hero-workshop.png" alt="" fetchPriority="high" />
           </picture>
           <div className="hero-grid" aria-hidden="true" />
-          <div className="availability"><i /> Founding client offer <span>First 5 paid projects</span></div>
+          <div className="availability"><i /> Free custom app preview <span>No purchase required</span></div>
           <div className="hero-copy">
             <p className="kicker">Founding client pricing · First 5 paid projects</p>
-            <h1>That annoying task?<br /><em>Make it one tap.</em></h1>
-            <p className="hero-deck">Tell me one task you repeat. I’ll outline the smallest useful tool that could eliminate it—free. If you want it built, founding-client projects start at CAD $40.</p>
+            <h1>See your app.<br /><em>Before you build it.</em></h1>
+            <p className="hero-deck">Tell me what your app should do. I’ll create a free custom preview image of its key screen, so you can see the direction before deciding whether to build. Phone and desktop app projects start at CAD $60.</p>
             <div className="offer-summary" aria-label="Founding client prices"><span><b>Phone app</b>From CAD $60</span><span><b>Desktop app</b>From CAD $60</span><span><b>MCU firmware</b>From CAD $40</span></div>
-            <div className="hero-actions"><EmailLink className="button primary">Describe your annoying task <Arrow /></EmailLink><a className="button secondary" href="#work">See what I’ve built</a></div>
+            <div className="hero-actions"><EmailLink className="button primary" preview>Get my free preview <Arrow /></EmailLink><a className="button secondary" href="#work">See what I’ve built</a></div>
           </div>
           <div className="hero-index" aria-hidden="true"><span>Selected work</span><b>↓</b></div>
         </section>
@@ -163,7 +169,7 @@ function App() {
           <ol>{process.map((item, index) => <li key={item.step}><span>0{index + 1}</span><div><h3>{item.step}</h3><p>{item.body}</p></div></li>)}</ol>
         </section>
 
-        <section className="contact section" id="contact"><p className="eyebrow">Founding client pricing · First 5 paid projects</p><h2>One annoying task.<br /><em>Your own solution.</em></h2><EmailLink className="contact-link">Describe your annoying task <Arrow /></EmailLink><p className="contact-note">The outline is free. If it fits a starter scope, builds begin at CAD $40.</p><div className="contact-glow" aria-hidden="true" /></section>
+        <section className="contact section" id="contact"><p className="eyebrow">One custom screen concept · No purchase required</p><h2>Picture it first.<br /><em>Build it when it feels right.</em></h2><EmailLink className="contact-link" preview>Get my free app preview <Arrow /></EmailLink><p className="contact-note">You’ll receive one visual concept for a key phone or desktop app screen. It’s a preview image—not working software or a prototype.</p><div className="contact-glow" aria-hidden="true" /></section>
       </main>
 
       <footer><a className="brand" href="#top"><span>R</span> Reid</a><p>Custom software · Built in Canada</p><div><a href="https://github.com/reidklassen-design" target="_blank" rel="noreferrer">GitHub ↗</a><a href="#top">Back to top ↑</a></div></footer>

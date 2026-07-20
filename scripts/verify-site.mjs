@@ -42,7 +42,7 @@ for (const target of targets) {
     contactButtons: document.querySelectorAll('button.header-contact, button.button.primary, button.contact-link').length,
   }))
 
-  if (audit.title !== 'Turn One Annoying Task Into Your Own Tool') failures.push(`${target.name}: unexpected title`)
+  if (audit.title !== 'See Your Custom App Before You Build It') failures.push(`${target.name}: unexpected title`)
   if (audit.horizontalOverflow > 1) failures.push(`${target.name}: horizontal overflow ${audit.horizontalOverflow}px`)
   if (audit.brokenImages.length) failures.push(`${target.name}: broken images: ${audit.brokenImages.join(', ')}`)
   if (audit.sections.length) failures.push(`${target.name}: missing sections: ${audit.sections.join(', ')}`)
