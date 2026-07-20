@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "shared": {
+    "currency": "CAD",
+    "cashCapCad": 25,
+    "validationEvidenceTarget": 50,
+    "modelCostRule": "Pause any tactic whose cash plus model cost exceeds 20% of expected contribution margin.",
+    "lifecycle": [
+      "research",
+      "demo",
+      "offer",
+      "paid_validation",
+      "build",
+      "self_service"
+    ]
+  },
+  "businesses": [
+    {
+      "slug": "benchpilot",
+      "name": "BenchPilot",
+      "category": "Local desktop tools for small hardware companies",
+      "customer": "Small electronics makers shipping ESP32, RP2040, or STM32 products",
+      "promise": "Turn manual flashing and test checklists into one repeatable pass/fail workflow.",
+      "firstWorkflow": "Firmware flashing, serial-number assignment, serial pass/fail checks, and CSV production records.",
+      "validationGate": "Three paid reservations, two paid pilots of at least CAD $750, or one Shop purchase plus one paid pilot.",
+      "initialOffer": "Paid pilot: CAD $750-$1,500 for one supported board, one firmware image, and up to five automated checks.",
+      "primaryHumanDecision": "Choose the first supported MCU or board family.",
+      "researchQueries": [
+        "batch flashing ESP32 production serial numbers",
+        "small electronics production test fixture USB serial",
+        "firmware version tracking during device manufacturing"
+      ],
+      "riskGuard": "Support one narrow hardware family first; do not support every programmer, OS, board, or test method."
+    },
+    {
+      "slug": "ledgerclean",
+      "name": "LedgerClean",
+      "category": "Local document and CSV cleanup/import tool",
+      "customer": "Bookkeepers and office administrators repeating messy CSV cleanup",
+      "promise": "Convert recurring spreadsheet cleanup into a reusable local import workflow.",
+      "firstWorkflow": "Column mapping, duplicate detection, validation rules, and import-ready CSV export.",
+      "validationGate": "Three paid cleanup-template reservations or one paid pilot of at least CAD $500.",
+      "initialOffer": "Paid pilot: CAD $500-$1,000 for one recurring import workflow and one acceptance fixture.",
+      "primaryHumanDecision": "Choose one target source/export pair after evidence collection shows the strongest pain.",
+      "researchQueries": [
+        "bookkeeping CSV import duplicate cleanup problem",
+        "QuickBooks CSV import column mapping errors",
+        "office admin recurring spreadsheet cleanup workflow"
+      ],
+      "riskGuard": "Do not build generic spreadsheet software; pick one repeated import workflow."
+    },
+    {
+      "slug": "listflow",
+      "name": "ListFlow",
+      "category": "Bulk listing and media-preparation tool",
+      "customer": "Small online sellers preparing product photos and bulk listings",
+      "promise": "Prepare listing images, filenames, and CSV uploads without a manual editing loop.",
+      "firstWorkflow": "Image normalization, filename rules, listing CSV checks, and marketplace-ready export.",
+      "validationGate": "Three paid reservations or one shop workflow pilot of at least CAD $750.",
+      "initialOffer": "Paid pilot: CAD $750-$1,500 for one seller workflow and one export format.",
+      "primaryHumanDecision": "Choose one marketplace/export format only after evidence shows current buyer pain.",
+      "researchQueries": [
+        "bulk listing CSV upload rejected product photos",
+        "online seller batch photo resize naming workflow",
+        "marketplace listing bulk upload image requirements problem"
+      ],
+      "riskGuard": "Marketplace rules vary; version one needs one export format and one buyer type."
+    }
+  ]
+}

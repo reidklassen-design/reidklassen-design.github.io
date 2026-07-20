@@ -76,3 +76,67 @@ export const process = [
   { step: 'Build', body: 'Ship the smallest complete system.' },
   { step: 'Prove', body: 'Test it against real-world work.' },
 ]
+
+export type ProductSite = {
+  slug: string
+  name: string
+  theme: 'bench' | 'ledger' | 'list'
+  title: string
+  deck: string
+  audience: string
+  offer: string
+  source: string
+  proofLabel: string
+  cta: string
+  steps: string[]
+  bullets: string[]
+  exclusions: string[]
+}
+
+export const productSites: ProductSite[] = [
+  {
+    slug: 'benchpilot',
+    name: 'BenchPilot',
+    theme: 'bench',
+    title: 'Production flashing without clipboard chaos.',
+    deck: 'A local production station for small electronics teams that need firmware flashing, serial numbers, pass/fail tests, and exportable build records.',
+    audience: 'For shops shipping ESP32, RP2040, or STM32 devices from a bench, test jig, or small production run.',
+    offer: 'Pilot setup from CAD $750',
+    source: 'BP-G1-V1',
+    proofLabel: 'Validation pilot',
+    cta: 'Request a bench pilot',
+    steps: ['Connect device', 'Flash firmware', 'Run checks', 'Export record'],
+    bullets: ['USB/serial workflow', 'One board family first', 'CSV production history'],
+    exclusions: ['No safety-critical devices', 'No broad hardware support', 'No cloud account required'],
+  },
+  {
+    slug: 'ledgerclean',
+    name: 'LedgerClean',
+    theme: 'ledger',
+    title: 'Clean recurring CSV imports before they waste the afternoon.',
+    deck: 'A written-workflow pilot for bookkeepers and office teams who repeat the same spreadsheet cleanup before every import.',
+    audience: 'For recurring exports with mismatched columns, duplicate rows, validation errors, and import-ready formatting rules.',
+    offer: 'Workflow pilot from CAD $500',
+    source: 'LC-G1-V1',
+    proofLabel: 'Import workflow',
+    cta: 'Send a sample cleanup',
+    steps: ['Map columns', 'Validate rows', 'Remove duplicates', 'Export clean CSV'],
+    bullets: ['One recurring import first', 'Fixture-based acceptance test', 'Local file workflow'],
+    exclusions: ['No bookkeeping advice', 'No live bank access', 'No generic spreadsheet replacement'],
+  },
+  {
+    slug: 'listflow',
+    name: 'ListFlow',
+    theme: 'list',
+    title: 'Bulk listing prep without the tab-by-tab grind.',
+    deck: 'A shop workflow pilot for sellers who need product media and listing files prepared in one repeatable export.',
+    audience: 'For small sellers handling batches of product photos, filenames, listing checks, and marketplace upload files.',
+    offer: 'Shop workflow pilot from CAD $750',
+    source: 'LF-G1-V1',
+    proofLabel: 'Listing batch',
+    cta: 'Submit a listing batch',
+    steps: ['Normalize media', 'Apply naming rules', 'Check listing fields', 'Export upload file'],
+    bullets: ['One marketplace format first', 'Batch photo preparation', 'Upload-ready CSV checks'],
+    exclusions: ['No ad management', 'No marketplace policy advice', 'No unlimited format support'],
+  },
+]

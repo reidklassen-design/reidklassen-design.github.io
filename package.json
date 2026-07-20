@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/generate-product-pages.mjs && cp dist/index.html dist/404.html",
     "typecheck": "tsc -b --pretty false",
     "preview": "vite preview",
     "verify:site": "node scripts/verify-site.mjs",
@@ -14,6 +14,9 @@
     "campaign:status": "node campaign/cli.mjs status",
     "campaign:review": "node campaign/cli.mjs review",
     "campaign:evolve": "node campaign/cli.mjs evolve",
+    "business:list": "node campaign/business-cli.mjs list",
+    "business:init": "node campaign/business-cli.mjs init",
+    "business:status": "node campaign/business-cli.mjs status",
     "operator:test": "node --test campaign/test/operator.test.mjs",
     "operator:status": "node campaign/operator-cli.mjs status",
     "operator:due": "node campaign/operator-cli.mjs due"

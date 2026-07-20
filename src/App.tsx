@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { process, projects, services, skills, type Project } from './data'
+import { process, productSites, projects, services, skills, type ProductSite, type Project } from './data'
 
 const Arrow = () => <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M4 10h11M11 5l5 5-5 5" /></svg>
 const Expand = () => <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7 3H3v4M13 3h4v4M7 17H3v-4M13 17h4v-4" /></svg>
@@ -40,8 +40,63 @@ function Lightbox({ project, close }: { project: Project; close: () => void }) {
   )
 }
 
+function ProductEmail({ site, className = '' }: { site: ProductSite; className?: string }) {
+  const parts = ['reidklassen', 'gmail', 'com']
+  const openEmail = () => {
+    const subject = `${site.name} pilot · ${site.source}`
+    const body = [
+      'What workflow should this fix?',
+      '',
+      'What sample files, device, or batch can you provide?',
+      '',
+      'What would prove the pilot worked?',
+    ].join('\n')
+    window.location.href = `mailto:${parts[0]}@${parts[1]}.${parts[2]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
+  return <button className={className} type="button" onClick={openEmail}>{site.cta} <Arrow /></button>
+}
+
+function ProductSitePage({ site }: { site: ProductSite }) {
+  return (
+    <main className={`product-site ${site.theme}`}>
+      <section className="product-hero">
+        <nav className="product-nav" aria-label={`${site.name} navigation`}>
+          <a href={`/${site.slug}/`} aria-label={`${site.name} home`}>{site.name}</a>
+          <ProductEmail site={site} className="product-nav-cta" />
+        </nav>
+        <div className="product-copy">
+          <p className="product-kicker">{site.proofLabel} · {site.offer}</p>
+          <h1>{site.title}</h1>
+          <p>{site.deck}</p>
+          <ProductEmail site={site} className="product-primary" />
+        </div>
+        <div className="product-visual" aria-label={`${site.name} workflow illustration`}>
+          {site.steps.map((step, index) => <span key={step} style={{ '--i': index } as React.CSSProperties}>{step}</span>)}
+          <i />
+        </div>
+      </section>
+      <section className="product-band">
+        <article><span>Built for</span><p>{site.audience}</p></article>
+        <article><span>Pilot offer</span><p>{site.offer}. Fixed written scope before payment.</p></article>
+      </section>
+      <section className="product-details">
+        <div><p className="product-kicker">What the pilot proves</p><h2>One workflow. One acceptance test. No sprawling build.</h2></div>
+        <ul>{site.bullets.map((item) => <li key={item}>{item}</li>)}</ul>
+      </section>
+      <section className="product-limits">
+        <p>Not included</p>
+        <div>{site.exclusions.map((item) => <span key={item}>{item}</span>)}</div>
+      </section>
+    </main>
+  )
+}
+
 function App() {
   const [activeProject, setActiveProject] = useState<Project | null>(null)
+  const slug = window.location.pathname.split('/').filter(Boolean)[0]
+  const productSite = productSites.find((site) => site.slug === slug)
+  if (productSite) return <ProductSitePage site={productSite} />
+
   return (
     <>
       <a className="skip-link" href="#work">Skip to selected work</a>
