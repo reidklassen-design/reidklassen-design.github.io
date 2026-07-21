@@ -67,6 +67,7 @@ function ProductEmail({ site, className = '' }: { site: ProductSite; className?:
 function ProductSitePage({ site }: { site: ProductSite }) {
   const isIndependentHost = window.location.hostname.split('.')[0] === site.slug
   const homeHref = isIndependentHost ? '/' : `/${site.slug}/`
+  const visualClass = site.theme === 'ledger' ? 'product-visual ledger-visual' : 'product-visual'
   return (
     <main className={`product-site ${site.theme}`}>
       <section className="product-hero">
@@ -80,9 +81,34 @@ function ProductSitePage({ site }: { site: ProductSite }) {
           <p>{site.deck}</p>
           <ProductEmail site={site} className="product-primary" />
         </div>
-        <div className="product-visual" aria-label={`${site.name} workflow illustration`}>
-          {site.steps.map((step, index) => <span key={step} style={{ '--i': index } as React.CSSProperties}>{step}</span>)}
-          <i />
+        <div className={visualClass} aria-label={`${site.name} workflow illustration`}>
+          {site.theme === 'ledger' ? (
+            <>
+              <div className="ledger-sheet" aria-hidden="true">
+                <div className="ledger-header"><i /><i /><i /></div>
+                <div className="ledger-row"><b>Date</b><b>Description</b><b className="lc-amt">Amount</b></div>
+                <div className="ledger-row"><b>03/14</b><b>INV-2847 — Acme Corp</b><b className="lc-amt">$4,200.00</b></div>
+                <div className="ledger-row"><b>03/14</b><b>INV-2847 — Acme Corp</b><b className="lc-amt">$4,200.00</b></div>
+                <div className="ledger-row lc-dup"><b>03/15</b><b>Wire — Acme Holdings</b><b className="lc-amt">$4,200.00</b></div>
+                <div className="ledger-row"><b>03/16</b><b>SUB-0912 — CloudHost</b><b className="lc-amt">-$189.00</b></div>
+                <div className="ledger-row"><b>03/18</b><b>INV-2850 — Brightpath</b><b className="lc-amt">$1,750.00</b></div>
+              </div>
+              <div className="ledger-steps" aria-label="Workflow steps">
+                {site.steps.map((step, index) => (
+                  <div key={step} className="ledger-step">
+                    <div className="step-num">{index + 1}</div>
+                    <div className="step-label">{step}</div>
+                    {index < site.steps.length - 1 && <div className="step-line" aria-hidden="true" />}
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <>
+              {site.steps.map((step, index) => <span key={step} style={{ '--i': index } as React.CSSProperties}>{step}</span>)}
+              <i />
+            </>
+          )}
         </div>
       </section>
       <section className="product-band">
@@ -97,6 +123,11 @@ function ProductSitePage({ site }: { site: ProductSite }) {
         <p>Not included</p>
         <div>{site.exclusions.map((item) => <span key={item}>{item}</span>)}</div>
       </section>
+      <footer className="product-footer">
+        <span>{site.name}</span>
+        <p>Built in Canada · Custom software</p>
+        <a href={homeHref}>Back to {isIndependentHost ? 'portfolio' : 'home'} ↑</a>
+      </footer>
     </main>
   )
 }
