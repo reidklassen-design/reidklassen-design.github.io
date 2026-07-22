@@ -104,7 +104,7 @@ export const productSites: ProductSite[] = [
     offer: 'Pilot setup from CAD $750',
     source: 'BP-G1-V1',
     proofLabel: 'Validation pilot',
-    cta: 'Request a bench pilot',
+    cta: 'Describe your board',
     steps: ['Connect device', 'Flash firmware', 'Run checks', 'Export record'],
     bullets: ['USB/serial workflow', 'One board family first', 'CSV production history'],
     exclusions: ['No safety-critical devices', 'No broad hardware support', 'No cloud account required'],
