@@ -126,7 +126,7 @@ function ProductSitePage({ site }: { site: ProductSite }) {
       <footer className="product-footer">
         <span>{site.name}</span>
         <p>Built in Canada · Custom software</p>
-        <a href={homeHref}>Back to {isIndependentHost ? 'portfolio' : 'home'} ↑</a>
+        {site.slug === 'benchpilot' ? <span aria-hidden="true" /> : <a href={homeHref}>Back to {isIndependentHost ? 'portfolio' : 'home'} ↑</a>}
       </footer>
     </main>
   )
