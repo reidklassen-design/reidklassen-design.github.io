@@ -19,6 +19,7 @@ const sites = [
     title: 'LedgerClean | Recurring CSV Cleanup Pilots',
     description: 'A local workflow pilot for bookkeepers and office teams repeating the same CSV cleanup, validation, dedupe, and import formatting work.',
     color: '#f8f4eb',
+    socialImage: '/product-social/ledgerclean.png',
     knowsAbout: ['CSV cleanup', 'Import validation', 'Duplicate detection'],
   },
   {
@@ -37,6 +38,12 @@ function attrEscape(value) {
 
 function replaceMeta(html, site) {
   const url = `https://reidklassen-design.github.io/${site.slug}/`
+  const socialImage = site.socialImage
+    ? `https://reidklassen-design.github.io${site.socialImage}`
+    : `https://reidklassen-design.github.io/product-icons/${site.slug}.svg`
+  const socialImageMeta = site.socialImage
+    ? `<meta property="og:image" content="${socialImage}" />\n    <meta property="og:image:width" content="1200" />\n    <meta property="og:image:height" content="630" />\n    <meta name="twitter:image" content="${socialImage}" />`
+    : `<meta property="og:image" content="${socialImage}" />`
   const ld = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -54,7 +61,7 @@ function replaceMeta(html, site) {
     .replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${attrEscape(site.title)}" />`)
     .replace(/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${attrEscape(site.description)}" />`)
     .replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${url}" />`)
-    .replace(/<meta property="og:image" content="[^"]*" \/>/, `<meta property="og:image" content="https://reidklassen-design.github.io/product-icons/${site.slug}.svg" />`)
+    .replace(/<meta property="og:image" content="[^"]*" \/>/, socialImageMeta)
     .replace(/<title>.*<\/title>/, `<title>${site.title}</title>`)
     .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, `<script type="application/ld+json">${JSON.stringify(ld)}</script>`)
 }
