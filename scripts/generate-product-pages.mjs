@@ -8,10 +8,12 @@ const sites = [
   {
     slug: 'benchpilot',
     name: 'BenchPilot',
-    title: 'BenchPilot | Production Flashing and Test Records',
-    description: 'A local production-station pilot for small electronics teams that need firmware flashing, serial numbers, pass/fail checks, and exportable records.',
+    title: 'BenchPilot | Custom MCU Firmware',
+    description: 'Custom firmware for ESP32, RP2040, and STM32 boards. Starter jobs from CAD $40: one board, one low-voltage peripheral, one behaviour, source, pinout, flash notes, and one revision.',
     color: '#08100d',
-    knowsAbout: ['Firmware flashing', 'Production test records', 'Serial-number workflows'],
+    type: 'ProfessionalService',
+    price: '40.00',
+    knowsAbout: ['Custom MCU firmware', 'ESP32', 'RP2040', 'STM32'],
   },
   {
     slug: 'ledgerclean',
@@ -46,11 +48,15 @@ function replaceMeta(html, site) {
     : `<meta property="og:image" content="${socialImage}" />`
   const ld = {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
+    '@type': site.type ?? 'SoftwareApplication',
     name: site.name,
     url,
-    applicationCategory: 'BusinessApplication',
-    offers: { '@type': 'Offer', priceCurrency: 'CAD' },
+    ...(site.type ? { description: site.description, areaServed: 'CA' } : { applicationCategory: 'BusinessApplication' }),
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'CAD',
+      ...(site.price ? { price: site.price, description: site.description } : {}),
+    },
     knowsAbout: site.knowsAbout,
   }
   return html
