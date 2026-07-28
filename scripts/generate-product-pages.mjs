@@ -30,6 +30,7 @@ const sites = [
     title: 'ListFlow | Bulk Listing Prep Workflows',
     description: 'A shop workflow pilot for small sellers preparing product media, filenames, listing checks, and marketplace-ready upload files.',
     color: '#120917',
+    socialImage: '/product-social/listflow.png',
     knowsAbout: ['Bulk listing prep', 'Product media workflow', 'Upload file validation'],
   },
 ]
