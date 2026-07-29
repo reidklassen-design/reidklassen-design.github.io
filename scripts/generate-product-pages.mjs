@@ -22,6 +22,8 @@ const sites = [
     description: 'A local workflow pilot for bookkeepers and office teams repeating the same CSV cleanup, validation, dedupe, and import formatting work.',
     color: '#f8f4eb',
     socialImage: '/product-social/ledgerclean.png',
+    type: 'ProfessionalService',
+    price: '500.00',
     knowsAbout: ['CSV cleanup', 'Import validation', 'Duplicate detection'],
   },
   {
