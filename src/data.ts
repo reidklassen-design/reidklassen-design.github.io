@@ -121,7 +121,7 @@ export const productSites: ProductSite[] = [
     proofLabel: 'Import workflow',
     cta: 'Send a sample cleanup',
     steps: ['Map columns', 'Validate rows', 'Remove duplicates', 'Export clean CSV'],
-    bullets: ['One recurring import first', 'Fixture-based acceptance test', 'Local file workflow'],
+    bullets: ['One recurring import first', 'Duplicate rows flagged; row count and totals matched', 'Local file workflow'],
     exclusions: ['No bookkeeping advice', 'No live bank access', 'No generic spreadsheet replacement'],
   },
   {
