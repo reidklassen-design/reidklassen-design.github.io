@@ -33,6 +33,8 @@ const sites = [
     description: 'A shop workflow pilot for small sellers preparing product media, filenames, listing checks, and marketplace-ready upload files.',
     color: '#120917',
     socialImage: '/product-social/listflow.png',
+    type: 'ProfessionalService',
+    price: '750.00',
     knowsAbout: ['Bulk listing prep', 'Product media workflow', 'Upload file validation'],
   },
 ]
