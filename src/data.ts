@@ -106,7 +106,7 @@ export const productSites: ProductSite[] = [
     proofLabel: 'Validation pilot',
     cta: 'Describe your board',
     steps: ['Connect device', 'Flash firmware', 'Run checks', 'Export record'],
-    bullets: ['USB/serial workflow', 'One board family first', 'CSV production history'],
+    bullets: ['USB/serial workflow', 'One board family first', 'Pilot passes when one supported board flashes, runs the agreed check, and writes its board ID and result to CSV'],
     exclusions: ['No safety-critical devices', 'No broad hardware support', 'No cloud account required'],
   },
   {
