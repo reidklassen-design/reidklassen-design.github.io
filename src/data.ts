@@ -136,7 +136,7 @@ export const productSites: ProductSite[] = [
     proofLabel: 'Listing batch',
     cta: 'Submit a listing batch',
     steps: ['Normalize media', 'Apply naming rules', 'Check listing fields', 'Export upload file'],
-    bullets: ['One marketplace format first', 'Batch photo preparation', 'Upload-ready CSV checks'],
+    bullets: ['One marketplace format first', 'Batch photo preparation', 'Export passes when every approved item has one row, all required fields, and matching image filenames'],
     exclusions: ['No ad management', 'No marketplace policy advice', 'No unlimited format support'],
   },
 ]
