@@ -119,7 +119,7 @@ export const productSites: ProductSite[] = [
     offer: 'Workflow pilot from CAD $500',
     source: 'LC-G1-V1',
     proofLabel: 'Import workflow',
-    cta: 'Send a sample cleanup',
+    cta: 'Describe your CSV import',
     steps: ['Map columns', 'Validate rows', 'Remove duplicates', 'Export clean CSV'],
     bullets: ['One recurring import first', 'Duplicate rows flagged; row count and totals matched', 'Local file workflow'],
     exclusions: ['No bookkeeping advice', 'No live bank access', 'No generic spreadsheet replacement'],
