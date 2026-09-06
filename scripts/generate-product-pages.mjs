@@ -11,6 +11,7 @@ const sites = [
     title: 'BenchPilot | Custom MCU Firmware',
     description: 'Custom firmware for ESP32, RP2040, and STM32 boards. Starter jobs from CAD $40: one board, one low-voltage peripheral, one behaviour, source, pinout, flash notes, and one revision.',
     color: '#08100d',
+    socialImage: '/product-social/benchpilot.png',
     type: 'ProfessionalService',
     price: '40.00',
     knowsAbout: ['Custom MCU firmware', 'ESP32', 'RP2040', 'STM32'],
