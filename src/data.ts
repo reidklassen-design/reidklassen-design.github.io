@@ -113,7 +113,7 @@ export const productSites: ProductSite[] = [
     slug: 'ledgerclean',
     name: 'LedgerClean',
     theme: 'ledger',
-    title: 'Clean recurring CSV imports before they waste the afternoon.',
+    title: 'I turn one messy CSV export into a checked, import-ready file.',
     deck: 'A written-workflow pilot for bookkeepers and office teams who repeat the same spreadsheet cleanup before every import.',
     audience: 'For recurring exports with mismatched columns, duplicate rows, validation errors, and import-ready formatting rules.',
     offer: 'Workflow pilot from CAD $500',
