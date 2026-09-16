@@ -98,7 +98,7 @@ export const productSites: ProductSite[] = [
     slug: 'benchpilot',
     name: 'BenchPilot',
     theme: 'bench',
-    title: 'Production flashing without clipboard chaos.',
+    title: 'I build one repeatable flash-and-test workflow for your board.',
     deck: 'A local production station for small electronics teams that need firmware flashing, serial numbers, pass/fail tests, and exportable build records.',
     audience: 'For shops shipping ESP32, RP2040, or STM32 devices from a bench, test jig, or small production run.',
     offer: 'Pilot setup from CAD $750',
