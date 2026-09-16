@@ -128,7 +128,7 @@ export const productSites: ProductSite[] = [
     slug: 'listflow',
     name: 'ListFlow',
     theme: 'list',
-    title: 'Bulk listing prep without the tab-by-tab grind.',
+    title: 'I turn one listing batch into a checked upload file.',
     deck: 'A shop workflow pilot for sellers who need product media and listing files prepared in one repeatable export.',
     audience: 'For small sellers handling batches of product photos, filenames, listing checks, and marketplace upload files.',
     offer: 'Shop workflow pilot from CAD $750',
