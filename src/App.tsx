@@ -86,12 +86,12 @@ function ProductSitePage({ site }: { site: ProductSite }) {
             <>
               <div className="ledger-sheet" aria-hidden="true">
                 <div className="ledger-header"><i /><i /><i /></div>
-                <div className="ledger-row"><b>Date</b><b>Description</b><b className="lc-amt">Amount</b></div>
-                <div className="ledger-row"><b>03/14</b><b>INV-2847 — Acme Corp</b><b className="lc-amt">$4,200.00</b></div>
-                <div className="ledger-row"><b>03/14</b><b>INV-2847 — Acme Corp</b><b className="lc-amt">$4,200.00</b></div>
-                <div className="ledger-row lc-dup"><b>03/15</b><b>Wire — Acme Holdings</b><b className="lc-amt">$4,200.00</b></div>
-                <div className="ledger-row"><b>03/16</b><b>SUB-0912 — CloudHost</b><b className="lc-amt">-$189.00</b></div>
-                <div className="ledger-row"><b>03/18</b><b>INV-2850 — Brightpath</b><b className="lc-amt">$1,750.00</b></div>
+                <div className="ledger-row"><b>Date</b><b>Sample description</b><b className="lc-amt">Amount</b></div>
+                <div className="ledger-row"><b>03/14</b><b>INV-1001 — Example customer</b><b className="lc-amt">$4,200.00</b></div>
+                <div className="ledger-row"><b>03/14</b><b>INV-1001 — Example customer</b><b className="lc-amt">$4,200.00</b></div>
+                <div className="ledger-row lc-dup"><b>03/15</b><b>Transfer — Example customer</b><b className="lc-amt">$4,200.00</b></div>
+                <div className="ledger-row"><b>03/16</b><b>SUB-1002 — Example vendor</b><b className="lc-amt">-$189.00</b></div>
+                <div className="ledger-row"><b>03/18</b><b>INV-1003 — Example customer</b><b className="lc-amt">$1,750.00</b></div>
               </div>
               <div className="ledger-steps" aria-label="Workflow steps">
                 {site.steps.map((step, index) => (
